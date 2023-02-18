@@ -13,6 +13,7 @@
       crossorigin="anonymous"
     />
   </head>
+
   <body>
     <div class="container">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -95,8 +96,222 @@
           <h1>Contact Us</h1>
         </div>
         <!--registr page-->
-        <div id="register-page" class="d-none">
+        <div id="register-page" class="">
           <h1>Register-Page</h1>
+          <form class="row g-3">
+            <h4>name</h4>
+            <div class="col-md-6">
+              <label for="register-input-name" class="form-label"
+                >First Name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="register-input-name"
+              />
+              <div
+                class="alert alert-danger d-none"
+                role="alert"
+                id="register-alert-name"
+              >
+                Must Start With a capital Letter
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="register-input-last-name" class="form-label"
+                >Last Name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="register-input-last-name"
+              />
+              <div
+                class="alert alert-danger d-none"
+                role="alert"
+                id="register-alert-last-name"
+              >
+                Must Start With a capital Letter
+              </div>
+            </div>
+            <h4>Address</h4>
+            <div class="col-md-4">
+              <label for="register-input-state" class="form-label">State</label>
+              <input
+                type="text"
+                class="form-control"
+                id="register-input-state"
+              />
+              <div
+                class="alert alert-danger d-none"
+                role="alert"
+                id="register-alert-state"
+              >
+                Must Start With a capital Letter
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="register-input-country" class="form-label"
+                >Country</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="register-input-country"
+              />
+              <div
+                class="alert alert-danger d-none"
+                role="alert"
+                id="register-alert-country"
+              >
+                Must Start With a capital Letter
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="register-input-city" class="form-label">City</label>
+              <input
+                type="text"
+                class="form-control"
+                id="register-input-city"
+              />
+              <div
+                class="alert alert-danger d-none"
+                role="alert"
+                id="register-alert-city"
+              >
+                Must Start With a capital Letter
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="register-input-street" class="form-label"
+                >Street</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="register-input-street"
+              />
+              <div
+                class="alert alert-danger d-none"
+                role="alert"
+                id="register-alert-street"
+              >
+                Must Start With a capital Letter
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="register-input-house-number" class="form-label"
+                >House Number</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="register-input-house-number"
+              />
+              <div
+                class="alert alert-danger d-none"
+                role="alert"
+                id="register-alert-house-number"
+              >
+                numbers are required
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="register-input-zip-code" class="form-label"
+                >Zip Code</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="register-input-zip-code"
+              />
+              <div
+                class="alert alert-danger d-none"
+                role="alert"
+                id="register-alert-zip-code"
+              >
+                numbers are required
+              </div>
+            </div>
+            <h4>Means Of Contact</h4>
+            <div class="col-md-6">
+              <label for="register-input-email" class="form-label">Email</label>
+              <input
+                type="text"
+                class="form-control"
+                id="register-input-email"
+              />
+              <div
+                class="alert alert-danger d-none"
+                role="alert"
+                id="register-alert-email"
+              >
+                email inavalid
+                <br />
+                example of a valid email: "yon34@gmail.com"
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="register-input-phone" class="form-label">Phone</label>
+              <input
+                type="number"
+                class="form-control"
+                id="register-input-phone"
+              />
+              <div
+                class="alert alert-danger d-none"
+                role="alert"
+                id="register-alert-phone"
+              >
+                numbers are required
+              </div>
+            </div>
+            <h4>Security</h4>
+            <div class="col-md-6">
+              <label for="register-input-password" class="form-label"
+                >Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="register-input-password"
+              />
+              <div
+                class="alert alert-danger d-none"
+                role="alert"
+                id="register-alert-password"
+              >
+                The password length must be greater than or equal to 8 The
+                password must contain <br />
+                one or more uppercase characters,<br />
+                lowercase characters,<br />
+                numeric values, (1-10)<br />
+                special characters (!@#$%^&*)
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="register-input-repeat-password" class="form-label"
+                >Repeat password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="register-input-repeat-password"
+              />
+              <div
+                class="alert alert-danger d-none"
+                role="alert"
+                id="register-alert-repeat-password"
+              >
+                numbers are required
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
         </div>
 
         <!--login page-->
