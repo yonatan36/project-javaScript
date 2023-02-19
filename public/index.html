@@ -98,7 +98,7 @@
         <!--registr page-->
         <div id="register-page" class="">
           <h1>Register-Page</h1>
-          <form class="row g-3">
+          <form class="row g-3" onsubmit="event.preventDefault()">
             <h4>name</h4>
             <div class="col-md-6">
               <label for="register-input-name" class="form-label"
@@ -282,12 +282,12 @@
                 role="alert"
                 id="register-alert-password"
               >
-                The password length must be greater than or equal to 8 The
-                password must contain <br />
-                one or more uppercase characters,<br />
-                lowercase characters,<br />
-                numeric values, (1-10)<br />
-                special characters (!@#$%^&*)
+                1. The password length must be greater than or equal to 8 <br />
+                2. The password must contain one or more uppercase
+                characters,<br />
+                3. lowercase characters,<br />
+                4. numeric values, (1-10)<br />
+                5. special characters (!@#$%^&*)
               </div>
             </div>
             <div class="col-md-6">
@@ -304,12 +304,19 @@
                 role="alert"
                 id="register-alert-repeat-password"
               >
-                numbers are required
+               Password does not match
               </div>
             </div>
 
             <div class="col-12">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                disabled="true"
+                id="register-btn"
+              >
+                Submit
+              </button>
             </div>
           </form>
         </div>

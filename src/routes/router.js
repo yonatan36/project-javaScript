@@ -6,8 +6,6 @@ const CONTACTUSLINK = document.getElementById(PAGES.CONTACT);
 const LOGINPAGELINK = document.getElementById(PAGES.LOGIN);
 const REGISTERPAGELINK = document.getElementById(PAGES.REGISTER);
 
-
-
 function handlePageChange(pageToDisplay) {
   /* hide all pages */
   HOMEPAGELINK.classList.remove("d-block");
@@ -56,6 +54,5 @@ function handlePageChange(pageToDisplay) {
       break;
   }
 }
-
 
 export { handlePageChange };
