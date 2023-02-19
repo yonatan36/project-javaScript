@@ -206,8 +206,8 @@ inputPassword.addEventListener("input", () => {
 });
 
 inputRepeatPassword.addEventListener("input", () => {
-  const reg = new RegExp(inputPassword.value);
-  if (reg.test(inputRepeatPassword.value)) {
+  const reg = new RegExp(inputPassword.value );
+  if (reg.test(inputRepeatPassword.value )) {
     inputRepeatPassword.classList.remove("is-invalid");
     document
       .getElementById("register-alert-repeat-password")
