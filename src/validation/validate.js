@@ -1,5 +1,5 @@
 const validate = (regex , value , min , max) =>{
-magArr = []
+magArr = [];
 if (value.length < min){
  msgArr = [...msgArr , "to short"];
 }

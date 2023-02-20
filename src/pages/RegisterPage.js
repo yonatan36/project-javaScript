@@ -30,7 +30,47 @@ let phoneOk = false;
 let passwordOk = false;
 let repeatpasswordOk = false;
 
-inputName.addEventListener("input", () => {
+//have name alerdy in
+window.addEventListener("load", () => {
+  console.log(inputName.value);
+  checkNameInput();
+
+  if (inputLastName.value !== "") {
+    checkLastNameInput();
+  }
+  if (inputState.value !== "") {
+    checkinputState();
+  }
+  if (inputCountry.value !== "") {
+    checkInputcountry();
+  }
+  if (inputCity.value !== "") {
+    checkInputCity();
+  }
+  if (inputStreet.value !== "") {
+    checkInputStreet();
+  }
+  if (inputHouseNumber.value !== "") {
+    checkInputHouseNumber();
+  }
+  if (inputZipCode.value !== "") {
+    checkInputZipCode();
+  }
+  if (inputEmail.value !== "") {
+    checkInputEmail();
+  }
+  if (inputPhone.value !== "") {
+    checkInputPhone();
+  }
+  if (inputPassword.value !== "") {
+    checkInputPassword();
+  }
+  if (inputRepeatPassword.value !== "") {
+    checkInputReaptPassword();
+  }
+});
+
+const checkNameInput = () => {
   const reg = new RegExp("^[A-Z][a-z0-9-\\s]{0,}$", "g");
 
   if (reg.test(inputName.value)) {
@@ -43,8 +83,12 @@ inputName.addEventListener("input", () => {
     nameOk = false;
   }
   checkBtn();
+};
+inputName.addEventListener("input", () => {
+  checkNameInput();
 });
-inputLastName.addEventListener("input", () => {
+
+const checkLastNameInput = () => {
   const reg = new RegExp("^[A-Z][a-z0-9-\\s]{0,}$", "g");
 
   if (reg.test(inputLastName.value)) {
@@ -59,8 +103,12 @@ inputLastName.addEventListener("input", () => {
     lastnameOk = false;
   }
   checkBtn();
+};
+inputLastName.addEventListener("input", () => {
+  checkLastNameInput();
 });
-inputState.addEventListener("input", () => {
+
+const checkinputState = () => {
   const reg = new RegExp("^[a-z0-9-\\s]{0,}$", "g");
 
   if (reg.test(inputState.value)) {
@@ -73,9 +121,12 @@ inputState.addEventListener("input", () => {
     stateOk = false;
   }
   checkBtn();
+};
+inputState.addEventListener("input", () => {
+  checkinputState();
 });
 
-inputCountry.addEventListener("input", () => {
+const checkInputcountry = () => {
   const reg = new RegExp("^[A-Z][a-z0-9-\\s]{0,}$", "g");
 
   if (reg.test(inputCountry.value)) {
@@ -90,9 +141,12 @@ inputCountry.addEventListener("input", () => {
     countryOk = false;
   }
   checkBtn();
+};
+inputCountry.addEventListener("input", () => {
+  checkInputcountry();
 });
 
-inputCity.addEventListener("input", () => {
+const checkInputCity = () => {
   const reg = new RegExp("^[A-Z][a-z0-9-\\s]{0,}$", "g");
 
   if (reg.test(inputCity.value)) {
@@ -105,9 +159,12 @@ inputCity.addEventListener("input", () => {
     countryOk = false;
   }
   checkBtn();
+};
+inputCity.addEventListener("input", () => {
+  checkInputCity();
 });
 
-inputStreet.addEventListener("input", () => {
+const checkInputStreet = () => {
   const reg = new RegExp("^[A-Z][a-z0-9-\\s]{0,}$", "g");
   if (reg.test(inputStreet.value)) {
     inputStreet.classList.remove("is-invalid");
@@ -119,9 +176,12 @@ inputStreet.addEventListener("input", () => {
     streetOk = false;
   }
   checkBtn();
+};
+inputStreet.addEventListener("input", () => {
+  checkInputStreet();
 });
 
-inputHouseNumber.addEventListener("input", () => {
+const checkInputHouseNumber = () => {
   const reg = new RegExp("[0-9]");
   if (reg.test(inputHouseNumber.value)) {
     inputHouseNumber.classList.remove("is-invalid");
@@ -137,9 +197,12 @@ inputHouseNumber.addEventListener("input", () => {
     housenumberOk = false;
   }
   checkBtn();
+};
+inputHouseNumber.addEventListener("input", () => {
+  checkInputHouseNumber();
 });
 
-inputZipCode.addEventListener("input", () => {
+const checkInputZipCode = () => {
   const reg = new RegExp("[0-9]");
   if (reg.test(inputZipCode.value)) {
     inputZipCode.classList.remove("is-invalid");
@@ -153,9 +216,12 @@ inputZipCode.addEventListener("input", () => {
     zipcodeOk = false;
   }
   checkBtn();
+};
+inputZipCode.addEventListener("input", () => {
+  checkInputZipCode();
 });
 
-inputEmail.addEventListener("input", () => {
+const checkInputEmail = () => {
   const reg = new RegExp(
     "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$",
     "ig"
@@ -170,9 +236,12 @@ inputEmail.addEventListener("input", () => {
     emailOk = false;
   }
   checkBtn();
+};
+inputEmail.addEventListener("input", () => {
+  checkInputEmail();
 });
 
-inputPhone.addEventListener("input", () => {
+const checkInputPhone = () => {
   const reg = new RegExp("[0-9]");
   if (reg.test(inputPhone.value)) {
     inputPhone.classList.remove("is-invalid");
@@ -184,11 +253,14 @@ inputPhone.addEventListener("input", () => {
     phoneOk = false;
   }
   checkBtn();
+};
+inputPhone.addEventListener("input", () => {
+  checkInputPhone();
 });
 
-inputPassword.addEventListener("input", () => {
+const checkInputPassword = () => {
   const reg = new RegExp(
-    "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,250}$",
+    "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%?&])[A-Za-z\\d@$!*%?&]{8,250}$",
     "g"
   );
   if (reg.test(inputPassword.value)) {
@@ -203,11 +275,15 @@ inputPassword.addEventListener("input", () => {
     passwordOk = false;
   }
   checkBtn();
+};
+inputPassword.addEventListener("input", () => {
+  checkInputPassword();
+  console.log(checkInputPassword, "login");
 });
 
-inputRepeatPassword.addEventListener("input", () => {
-  const reg = new RegExp(inputPassword.value );
-  if (reg.test(inputRepeatPassword.value )) {
+const checkInputReaptPassword = () => {
+  const reg = new RegExp(inputPassword.value);
+  if (reg.test(inputRepeatPassword.value)) {
     inputRepeatPassword.classList.remove("is-invalid");
     document
       .getElementById("register-alert-repeat-password")
@@ -221,6 +297,9 @@ inputRepeatPassword.addEventListener("input", () => {
     repeatpasswordOk = false;
   }
   checkBtn();
+};
+inputRepeatPassword.addEventListener("input", () => {
+  checkInputReaptPassword();
 });
 
 const checkBtn = () =>
