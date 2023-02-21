@@ -1,14 +1,14 @@
 const validate = (regex , value , min , max) =>{
-magArr = [];
+let msgsArr = [];
 if (value.length < min){
- msgArr = [...msgArr , "to short"];
+ msgsArr = [...msgsArr , "to short"];
 }
 if (value.length > max){
-    msgArr= [...msgArr,"to long"]  
+    msgsArr= [...msgsArr,"to long"]  
 }
 if (!regex.test(value)){
-    msgArr = [...msgArr ,"is invalid!"]
+    msgsArr = [...msgsArr ,"is invalid!"]
 }
-return msgArr;
+return msgsArr;
 };
 export default validate;

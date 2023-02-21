@@ -32,9 +32,6 @@ let repeatpasswordOk = false;
 
 //have name alerdy in
 window.addEventListener("load", () => {
-  console.log(inputName.value);
-  checkNameInput();
-
   if (inputLastName.value !== "") {
     checkLastNameInput();
   }
@@ -72,17 +69,21 @@ window.addEventListener("load", () => {
 
 const checkNameInput = () => {
   const reg = new RegExp("^[A-Z][a-z0-9-\\s]{0,}$", "g");
-
-  if (reg.test(inputName.value)) {
+  if (inputName.value.length === 0) {
     inputName.classList.remove("is-invalid");
     document.getElementById("register-alert-name").classList.add("d-none");
-    nameOk = true;
   } else {
-    document.getElementById("register-alert-name").classList.remove("d-none");
-    inputName.classList.add("is-invalid");
-    nameOk = false;
+    if (reg.test(inputName.value)) {
+      inputName.classList.remove("is-invalid");
+      document.getElementById("register-alert-name").classList.add("d-none");
+      nameOk = true;
+    } else {
+      document.getElementById("register-alert-name").classList.remove("d-none");
+      inputName.classList.add("is-invalid");
+      nameOk = false;
+    }
+    checkBtn();
   }
-  checkBtn();
 };
 inputName.addEventListener("input", () => {
   checkNameInput();
@@ -90,37 +91,49 @@ inputName.addEventListener("input", () => {
 
 const checkLastNameInput = () => {
   const reg = new RegExp("^[A-Z][a-z0-9-\\s]{0,}$", "g");
-
-  if (reg.test(inputLastName.value)) {
+  if (inputLastName.value.length === 0) {
     inputLastName.classList.remove("is-invalid");
     document.getElementById("register-alert-last-name").classList.add("d-none");
-    lastnameOk = true;
   } else {
-    document
-      .getElementById("register-alert-last-name")
-      .classList.remove("d-none");
-    inputLastName.classList.add("is-invalid");
-    lastnameOk = false;
+    if (reg.test(inputLastName.value)) {
+      inputLastName.classList.remove("is-invalid");
+      document
+        .getElementById("register-alert-last-name")
+        .classList.add("d-none");
+      lastnameOk = true;
+    } else {
+      document
+        .getElementById("register-alert-last-name")
+        .classList.remove("d-none");
+      inputLastName.classList.add("is-invalid");
+      lastnameOk = false;
+    }
+    checkBtn();
   }
-  checkBtn();
 };
 inputLastName.addEventListener("input", () => {
   checkLastNameInput();
 });
 
 const checkinputState = () => {
-  const reg = new RegExp("^[a-z0-9-\\s]{0,}$", "g");
-
-  if (reg.test(inputState.value)) {
+  const reg = new RegExp("^[A-Z][a-z0-9-\\s]{0,}$", "g");
+  if (inputState.value.length === 0) {
     inputState.classList.remove("is-invalid");
     document.getElementById("register-alert-state").classList.add("d-none");
-    stateOk = true;
   } else {
-    document.getElementById("register-alert-state").classList.remove("d-none");
-    inputState.classList.add("is-invalid");
-    stateOk = false;
+    if (reg.test(inputState.value)) {
+      inputState.classList.remove("is-invalid");
+      document.getElementById("register-alert-state").classList.add("d-none");
+      stateOk = true;
+    } else {
+      document
+        .getElementById("register-alert-state")
+        .classList.remove("d-none");
+      inputState.classList.add("is-invalid");
+      stateOk = false;
+    }
+    checkBtn();
   }
-  checkBtn();
 };
 inputState.addEventListener("input", () => {
   checkinputState();
@@ -128,19 +141,23 @@ inputState.addEventListener("input", () => {
 
 const checkInputcountry = () => {
   const reg = new RegExp("^[A-Z][a-z0-9-\\s]{0,}$", "g");
-
-  if (reg.test(inputCountry.value)) {
+  if (inputCountry.value.length === 0) {
     inputCountry.classList.remove("is-invalid");
     document.getElementById("register-alert-country").classList.add("d-none");
-    countryOk = true;
   } else {
-    document
-      .getElementById("register-alert-country")
-      .classList.remove("d-none");
-    inputCountry.classList.add("is-invalid");
-    countryOk = false;
+    if (reg.test(inputCountry.value)) {
+      inputCountry.classList.remove("is-invalid");
+      document.getElementById("register-alert-country").classList.add("d-none");
+      countryOk = true;
+    } else {
+      document
+        .getElementById("register-alert-country")
+        .classList.remove("d-none");
+      inputCountry.classList.add("is-invalid");
+      countryOk = false;
+    }
+    checkBtn();
   }
-  checkBtn();
 };
 inputCountry.addEventListener("input", () => {
   checkInputcountry();
@@ -148,17 +165,21 @@ inputCountry.addEventListener("input", () => {
 
 const checkInputCity = () => {
   const reg = new RegExp("^[A-Z][a-z0-9-\\s]{0,}$", "g");
-
-  if (reg.test(inputCity.value)) {
+  if (inputCity.value.length === 0) {
     inputCity.classList.remove("is-invalid");
     document.getElementById("register-alert-city").classList.add("d-none");
-    cityOk = true;
   } else {
-    document.getElementById("register-alert-city").classList.remove("d-none");
-    inputCity.classList.add("is-invalid");
-    countryOk = false;
+    if (reg.test(inputCity.value)) {
+      inputCity.classList.remove("is-invalid");
+      document.getElementById("register-alert-city").classList.add("d-none");
+      cityOk = true;
+    } else {
+      document.getElementById("register-alert-city").classList.remove("d-none");
+      inputCity.classList.add("is-invalid");
+      countryOk = false;
+    }
+    checkBtn();
   }
-  checkBtn();
 };
 inputCity.addEventListener("input", () => {
   checkInputCity();
@@ -166,16 +187,23 @@ inputCity.addEventListener("input", () => {
 
 const checkInputStreet = () => {
   const reg = new RegExp("^[A-Z][a-z0-9-\\s]{0,}$", "g");
-  if (reg.test(inputStreet.value)) {
+  if (inputStreet.value.length === 0) {
     inputStreet.classList.remove("is-invalid");
     document.getElementById("register-alert-street").classList.add("d-none");
-    streetOk = true;
   } else {
-    document.getElementById("register-alert-street").classList.remove("d-none");
-    inputStreet.classList.add("is-invalid");
-    streetOk = false;
+    if (reg.test(inputStreet.value)) {
+      inputStreet.classList.remove("is-invalid");
+      document.getElementById("register-alert-street").classList.add("d-none");
+      streetOk = true;
+    } else {
+      document
+        .getElementById("register-alert-street")
+        .classList.remove("d-none");
+      inputStreet.classList.add("is-invalid");
+      streetOk = false;
+    }
+    checkBtn();
   }
-  checkBtn();
 };
 inputStreet.addEventListener("input", () => {
   checkInputStreet();
@@ -183,20 +211,27 @@ inputStreet.addEventListener("input", () => {
 
 const checkInputHouseNumber = () => {
   const reg = new RegExp("[0-9]");
-  if (reg.test(inputHouseNumber.value)) {
+  if (inputHouseNumber.value.length === 0) {
     inputHouseNumber.classList.remove("is-invalid");
     document
       .getElementById("register-alert-house-number")
       .classList.add("d-none");
-    housenumberOk = true;
   } else {
-    document
-      .getElementById("register-alert-house-number")
-      .classList.remove("d-none");
-    inputHouseNumber.classList.add("is-invalid");
-    housenumberOk = false;
+    if (reg.test(inputHouseNumber.value)) {
+      inputHouseNumber.classList.remove("is-invalid");
+      document
+        .getElementById("register-alert-house-number")
+        .classList.add("d-none");
+      housenumberOk = true;
+    } else {
+      document
+        .getElementById("register-alert-house-number")
+        .classList.remove("d-none");
+      inputHouseNumber.classList.add("is-invalid");
+      housenumberOk = false;
+    }
+    checkBtn();
   }
-  checkBtn();
 };
 inputHouseNumber.addEventListener("input", () => {
   checkInputHouseNumber();
@@ -204,18 +239,25 @@ inputHouseNumber.addEventListener("input", () => {
 
 const checkInputZipCode = () => {
   const reg = new RegExp("[0-9]");
-  if (reg.test(inputZipCode.value)) {
+  if (inputZipCode.value.length === 0) {
     inputZipCode.classList.remove("is-invalid");
     document.getElementById("register-alert-zip-code").classList.add("d-none");
-    zipcodeOk = true;
   } else {
-    document
-      .getElementById("register-alert-zip-code")
-      .classList.remove("d-none");
-    inputZipCode.classList.add("is-invalid");
-    zipcodeOk = false;
+    if (reg.test(inputZipCode.value)) {
+      inputZipCode.classList.remove("is-invalid");
+      document
+        .getElementById("register-alert-zip-code")
+        .classList.add("d-none");
+      zipcodeOk = true;
+    } else {
+      document
+        .getElementById("register-alert-zip-code")
+        .classList.remove("d-none");
+      inputZipCode.classList.add("is-invalid");
+      zipcodeOk = false;
+    }
+    checkBtn();
   }
-  checkBtn();
 };
 inputZipCode.addEventListener("input", () => {
   checkInputZipCode();
@@ -226,16 +268,23 @@ const checkInputEmail = () => {
     "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$",
     "ig"
   );
-  if (reg.test(inputEmail.value)) {
+  if (inputEmail.value.length === 0) {
     inputEmail.classList.remove("is-invalid");
     document.getElementById("register-alert-email").classList.add("d-none");
-    emailOk = true;
   } else {
-    document.getElementById("register-alert-email").classList.remove("d-none");
-    inputEmail.classList.add("is-invalid");
-    emailOk = false;
+    if (reg.test(inputEmail.value)) {
+      inputEmail.classList.remove("is-invalid");
+      document.getElementById("register-alert-email").classList.add("d-none");
+      emailOk = true;
+    } else {
+      document
+        .getElementById("register-alert-email")
+        .classList.remove("d-none");
+      inputEmail.classList.add("is-invalid");
+      emailOk = false;
+    }
+   
   }
-  checkBtn();
 };
 inputEmail.addEventListener("input", () => {
   checkInputEmail();
@@ -243,16 +292,23 @@ inputEmail.addEventListener("input", () => {
 
 const checkInputPhone = () => {
   const reg = new RegExp("[0-9]");
-  if (reg.test(inputPhone.value)) {
+  if (inputPhone.value.length === 0) {
     inputPhone.classList.remove("is-invalid");
     document.getElementById("register-alert-phone").classList.add("d-none");
-    phoneOk = true;
   } else {
-    document.getElementById("register-alert-phone").classList.remove("d-none");
-    inputPhone.classList.add("is-invalid");
-    phoneOk = false;
+    if (reg.test(inputPhone.value)) {
+      inputPhone.classList.remove("is-invalid");
+      document.getElementById("register-alert-phone").classList.add("d-none");
+      phoneOk = true;
+    } else {
+      document
+        .getElementById("register-alert-phone")
+        .classList.remove("d-none");
+      inputPhone.classList.add("is-invalid");
+      phoneOk = false;
+    }
+    checkBtn();
   }
-  checkBtn();
 };
 inputPhone.addEventListener("input", () => {
   checkInputPhone();
@@ -263,18 +319,25 @@ const checkInputPassword = () => {
     "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%?&])[A-Za-z\\d@$!*%?&]{8,250}$",
     "g"
   );
-  if (reg.test(inputPassword.value)) {
+  if (inputPassword.value.length === 0) {
     inputPassword.classList.remove("is-invalid");
     document.getElementById("register-alert-password").classList.add("d-none");
-    passwordOk = true;
   } else {
-    document
-      .getElementById("register-alert-password")
-      .classList.remove("d-none");
-    inputPassword.classList.add("is-invalid");
-    passwordOk = false;
+    if (reg.test(inputPassword.value)) {
+      inputPassword.classList.remove("is-invalid");
+      document
+        .getElementById("register-alert-password")
+        .classList.add("d-none");
+      passwordOk = true;
+    } else {
+      document
+        .getElementById("register-alert-password")
+        .classList.remove("d-none");
+      inputPassword.classList.add("is-invalid");
+      passwordOk = false;
+    }
+    checkBtn();
   }
-  checkBtn();
 };
 inputPassword.addEventListener("input", () => {
   checkInputPassword();
@@ -283,20 +346,27 @@ inputPassword.addEventListener("input", () => {
 
 const checkInputReaptPassword = () => {
   const reg = new RegExp(inputPassword.value);
-  if (reg.test(inputRepeatPassword.value)) {
+  if (inputRepeatPassword.value.length === 0) {
     inputRepeatPassword.classList.remove("is-invalid");
     document
       .getElementById("register-alert-repeat-password")
       .classList.add("d-none");
-    repeatpasswordOk = true;
   } else {
-    document
-      .getElementById("register-alert-repeat-password")
-      .classList.remove("d-none");
-    inputRepeatPassword.classList.add("is-invalid");
-    repeatpasswordOk = false;
+    if (reg.test(inputRepeatPassword.value)) {
+      inputRepeatPassword.classList.remove("is-invalid");
+      document
+        .getElementById("register-alert-repeat-password")
+        .classList.add("d-none");
+      repeatpasswordOk = true;
+    } else {
+      document
+        .getElementById("register-alert-repeat-password")
+        .classList.remove("d-none");
+      inputRepeatPassword.classList.add("is-invalid");
+      repeatpasswordOk = false;
+    }
+    checkBtn();
   }
-  checkBtn();
 };
 inputRepeatPassword.addEventListener("input", () => {
   checkInputReaptPassword();

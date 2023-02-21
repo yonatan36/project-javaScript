@@ -96,7 +96,7 @@
           <h1>Contact Us</h1>
         </div>
         <!--registr page-->
-        <div id="register-page" class="">
+        <div id="register-page" class="d-none">
           <h1>Register-Page</h1>
           <form class="row g-3" onsubmit="event.preventDefault()">
             <h4>name</h4>
@@ -326,22 +326,46 @@
           <h1>Login page</h1>
           <form onsubmit="event.preventDefault()">
             <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="login-input-email" placeholder="name@example.com" />
+              <input
+                type="email"
+                class="form-control"
+                id="login-input-email"
+                placeholder="name@example.com"
+              />
               <label for="login-input-email">Email address</label>
             </div>
-            <div class="alert alert-danger d-none" role="alert" id="login-alert-email">
+            <div
+              class="alert alert-danger d-none"
+              role="alert"
+              id="login-alert-email"
+            >
               Email rules
             </div>
             <div class="form-floating">
-              <input type="password" class="form-control" id="login-input-password" placeholder="Password" />
+              <input
+                type="password"
+                class="form-control"
+                id="login-input-password"
+                placeholder="Password"
+              />
               <label for="login-input-password">Password</label>
             </div>
-            <div class="alert alert-danger d-none" role="alert" id="login-alert-password">
+            <div
+              class="alert alert-danger d-none"
+              role="alert"
+              id="login-alert-password"
+            >
               Password rules
             </div>
             <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+              />
+              <label class="form-check-label" for="exampleCheck1"
+                >Check me out</label
+              >
             </div>
             <button class="btn btn-primary" id="login-btn">Submit</button>
           </form>

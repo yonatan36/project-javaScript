@@ -1,53 +1,59 @@
-import validateEmail from "../validation/validateEmail.js";
+import emailValidate from "../validation/emailValidate.js";
 import validatePassword from "../validation/validatePassword.js";
-
 
 const loginEmailInput = document.querySelector("#login-input-email");
 const loginPasswordInput = document.querySelector("#login-input-password");
 const loginBtn = document.querySelector("#login-btn");
 
-
 loginEmailInput.addEventListener("input", () => {
-  let errorArr = validateEmail(loginEmailInput.value);
-  if (errorArr.length === 0) {
-    //no error
+  if (loginEmailInput.value.length === 0) {
+    // input is empty
     loginEmailInput.classList.remove("is-invalid");
     document.getElementById("login-alert-email").classList.add("d-none");
   } else {
-    // error/s
-    loginEmailInput.classList.add("is-invalid");
-    document.getElementById("login-alert-email").classList.remove("d-none");
-    document.getElementById("login-alert-email").innerHTML =
-      errorArr.join("<br>");
-    
+    let errorArr = emailValidate(loginEmailInput.value);
+    if (errorArr.length === 0) {
+      //no error
+      loginEmailInput.classList.remove("is-invalid");
+      document.getElementById("login-alert-email").classList.add("d-none");
+    } else {
+      // error/s
+      loginEmailInput.classList.add("is-invalid");
+      document.getElementById("login-alert-email").classList.remove("d-none");
+      document.getElementById("login-alert-email").innerHTML =
+        errorArr.join("<br>");
+    }
   }
-  console.log(loginEmailInput, "here");
 });
- 
- 
 
 loginPasswordInput.addEventListener("input", () => {
-  let errorArr = validatePassword(loginPasswordInput.value);
-  if (errorArr.length === 0) {
-    //no error
+  if (loginPasswordInput.value.length === 0) {
     loginPasswordInput.classList.remove("is-invalid");
     document.getElementById("login-alert-password").classList.add("d-none");
   } else {
-    // error/s
-    loginPasswordInput.classList.add("is-invalid");
-    document.getElementById("login-alert-password").classList.remove("d-none");
-    document.getElementById("login-alert-password").innerHTML =
-      errorArr.join("<br>");
-    /*
+    let errorArr = validatePassword(loginPasswordInput.value);
+    if (errorArr.length === 0) {
+      //no error
+      loginPasswordInput.classList.remove("is-invalid");
+      document.getElementById("login-alert-password").classList.add("d-none");
+    } else {
+      // error/s
+      loginPasswordInput.classList.add("is-invalid");
+      document
+        .getElementById("login-alert-password")
+        .classList.remove("d-none");
+      document.getElementById("login-alert-password").innerHTML =
+        errorArr.join("<br>");
+      /*
         let str = errorArr.join("<br>")
         document.getElementById("login-alert-password").innerHTML = str
       */
+    }
   }
-
 });
 
 loginBtn.addEventListener("click", () => {
-  if (validateEmail(loginEmailInput.value).length) {
+  if (emailValidate(loginEmailInput.value).length) {
     return;
   }
   if (validatePassword(loginPasswordInput.value).length) {
