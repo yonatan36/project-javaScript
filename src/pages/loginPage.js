@@ -1,6 +1,7 @@
 import emailValidate from "../validation/emailValidate.js";
 import validatePassword from "../validation/validatePassword.js";
-
+import PAGES  from "../models/pageModel.js";
+import { handlePageChange } from "../routes/router.js";
 const loginEmailInput = document.querySelector("#login-input-email");
 const loginPasswordInput = document.querySelector("#login-input-password");
 const loginBtn = document.querySelector("#login-btn");
@@ -70,19 +71,19 @@ loginBtn.addEventListener("click", () => {
       item.password === loginPasswordInput.value
   );
   if (!user) {
-    console.log("invalid email and/or password");
+    alert("invalid email and/or password");
     return;
   }
-  //remember who connected
+  //object who is token ,remember who conected
   localStorage.setItem(
     "token",
     JSON.stringify({
       id: user.id,
-      name: user.name,
       email: user.email,
+      password:user.password,
       isAdmin: user.isAdmin,
     })
   );
-  // handlePageChange(PAGES.HOME);
+  
   location.reload(); // refresh the page
 });

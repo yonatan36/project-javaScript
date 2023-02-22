@@ -1,5 +1,6 @@
 import PAGES from "../models/pageModel.js";
 import { handlePageChange } from "../routes/router.js";
+import User from "../models/user.js";
 
 const inputName = document.getElementById("register-input-name");
 const inputLastName = document.getElementById("register-input-last-name");
@@ -32,12 +33,16 @@ let repeatpasswordOk = false;
 
 //have name alerdy in
 window.addEventListener("load", () => {
-  if (inputLastName.value !== "") {
-    checkLastNameInput();
+
+  if (inputName.value !== "") {
+    checkNameInput();
   }
   if (inputState.value !== "") {
     checkinputState();
   }
+    if (inputLastName.value !== "") {
+      checkLastNameInput();
+    }
   if (inputCountry.value !== "") {
     checkInputcountry();
   }
@@ -176,6 +181,7 @@ const checkInputCity = () => {
     } else {
       document.getElementById("register-alert-city").classList.remove("d-none");
       inputCity.classList.add("is-invalid");
+
       countryOk = false;
     }
     checkBtn();
@@ -258,6 +264,7 @@ const checkInputZipCode = () => {
     }
     checkBtn();
   }
+
 };
 inputZipCode.addEventListener("input", () => {
   checkInputZipCode();
@@ -283,7 +290,6 @@ const checkInputEmail = () => {
       inputEmail.classList.add("is-invalid");
       emailOk = false;
     }
-   
   }
 };
 inputEmail.addEventListener("input", () => {
@@ -292,7 +298,7 @@ inputEmail.addEventListener("input", () => {
 
 const checkInputPhone = () => {
   const reg = new RegExp("[0-9]");
-  if (inputPhone.value.length === 0) {
+  if (inputPhone.value.length === "") {
     inputPhone.classList.remove("is-invalid");
     document.getElementById("register-alert-phone").classList.add("d-none");
   } else {
@@ -409,23 +415,24 @@ btnRegister.addEventListener("click", () => {
   }
   //the first user
   let users = localStorage.getItem("users");
+  //the user class
+  let newuser = new User(
+    inputName.value,
+    inputLastName.value,
+    inputState.value,
+    inputCity.value,
+    inputCountry.value,
+    inputEmail.value,
+    inputPhone.value,
+    inputHouseNumber.value,
+    inputPassword.value,
+    inputZipCode.value,
+    inputStreet.value
+    
+);
   if (!users) {
-    users = [
-      {
-        name: inputName.value,
-        lastName: inputLastName.value,
-        state: inputState.value,
-        city: inputCity.value,
-        country: inputCountry.value,
-        email: inputEmail.value,
-        housenumber: inputHouseNumber.value,
-        password: inputPassword.value,
-        phone: inputPhone.value,
-        password: inputRepeatPassword.value,
-        zipcode: inputZipCode.value,
-        street: inputStreet.value,
-      },
-    ];
+    users = [newuser];
+
     localStorage.setItem("users", JSON.stringify(users));
   } else {
     users = JSON.parse(users);
@@ -435,24 +442,9 @@ btnRegister.addEventListener("click", () => {
         return;
       }
     }
+
     //have a users
-    users = [
-      ...users,
-      {
-        name: inputName.value,
-        lastName: inputLastName.value,
-        state: inputState.value,
-        city: inputCity.value,
-        country: inputCountry.value,
-        email: inputEmail.value,
-        housenumber: inputHouseNumber.value,
-        password: inputPassword.value,
-        phone: inputPhone.value,
-        password: inputRepeatPassword.value,
-        zipcode: inputZipCode.value,
-        street: inputStreet.value,
-      },
-    ];
+    users = [...users, newuser];
 
     localStorage.setItem("users", JSON.stringify(users));
   }
